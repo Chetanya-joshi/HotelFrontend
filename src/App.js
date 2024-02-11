@@ -6,7 +6,7 @@ import Contactindex from './components/ContactUs';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoute from './Routes';
 import VaayuCafe from './components/VaayuCafe';
-
+export const URL = process.env.REACT_APP_SERVER;
 
 function App() {
   return (

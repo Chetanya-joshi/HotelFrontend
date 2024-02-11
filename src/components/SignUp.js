@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { URL } from "../App";
 
 import {Link , useNavigate} from 'react-router-dom';
 
@@ -31,7 +32,7 @@ export default function Signup() {
 // And the variables name, email, and password are defined
 
 try {
-      const response = await fetch("http://localhost:5000/signup", {
+      const response = await fetch(`${URL}/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

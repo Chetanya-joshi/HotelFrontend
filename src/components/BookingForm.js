@@ -35,7 +35,7 @@ const BookingForm = () => {
           body: JSON.stringify({name, amount})
       })
      
-      var keys= await fetch("http://localhost:5000/key",{
+      var keys= await fetch(`${URL}/key`,{
         method: 'GET',
     
       })

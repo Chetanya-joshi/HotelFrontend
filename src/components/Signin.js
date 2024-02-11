@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate,Link } from "react-router-dom";
+import { URL } from "../App";
 
 const SignIn = () => {
   const history = useNavigate();
@@ -12,7 +13,7 @@ const SignIn = () => {
     
 
     try {
-      const response = await fetch("http://localhost:5000/signin", {
+      const response = await fetch(`${URL}/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

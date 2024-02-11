@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import Header from "./LandingPAge/Header";
 import { useNavigate } from "react-router-dom";
-
+import { URL } from "../App";
 
 const BookingForm = () => {
   const [name,setname] = useState("")
@@ -29,7 +29,7 @@ const BookingForm = () => {
     localStorage.setItem('amount', amount); // Set the 'amount' in localStorage\
     try{
     
-      var data1 = await fetch("http://localhost:5000/Order",{
+      var data1 = await fetch(`${URL}/Order`,{
         method: 'POST', 
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({name, amount})
@@ -61,7 +61,7 @@ const BookingForm = () => {
         description: "Test Transaction",
         // image: "https://example.com/your_logo",
         order_id: data1.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        callback_url: "http://localhost:5000/verification",
+        callback_url: `${URL}/verification`,
         handler: function (response) {
           // Handle the payment success callback here
           console.log("Payment successful: ", response);
@@ -114,7 +114,7 @@ const BookingForm = () => {
         try {
     
           // Send a request to your server to save data to the database
-          const response = await fetch("http://localhost:5000/saveDataToDatabase", {
+          const response = await fetch(`${URL}/saveDataToDatabase`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
